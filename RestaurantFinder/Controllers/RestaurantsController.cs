@@ -24,7 +24,7 @@ namespace RestaurantFinder.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name"); // A ViewBag is used to shovel more things into your route that you didn't originally include in your model. In this case our ViewBag is filled with a CuisineId that is then deposited in a dropdown menu in our create view.
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name"); // A ViewBag is used to shovel more things into your route that you didn't originally include in your model. In this case our ViewBag is filled with a CuisineId that is then deposited in a dropdown menu in our create view. "Name" allows us to show the Name property in the dropdown.
       return View();
     }
 
@@ -34,6 +34,19 @@ namespace RestaurantFinder.Controllers
       _db.Restaurants.Add(restaurant);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      return View(thisRestaurant);
+    }
+
+    public ActionResult Edit(int id)
+    {
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
+      return View(thisRestaurant);
     }
   }
 }
