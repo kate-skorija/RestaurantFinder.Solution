@@ -49,7 +49,7 @@ namespace RestaurantFinder.Controllers
     [HttpPost]
     public ActionResult Edit(Cuisine cuisine)
     {
-      _db.Entry(cuisine).State = EntityState.Modified;
+      _db.Entry(cuisine).State = EntityState.Modified; // need to change state of entry so that Entity knows to looks for changes
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -60,7 +60,7 @@ namespace RestaurantFinder.Controllers
       return View(thisCuisine);
     }
 
-    [HttpPost, ActionName("Delete")] // method signatures are the same for both delete methods, so we have to change name to DeleteConfirm; need ActionName because
+    [HttpPost, ActionName("Delete")] // method signatures are the same for both delete methods, so we have to change name to DeleteConfirm; need ActionName to be "Delete" so that they can still match
     public ActionResult DeleteConfirmed(int id)
     {
       Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
