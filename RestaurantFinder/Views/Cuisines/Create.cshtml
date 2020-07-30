@@ -4,7 +4,7 @@
 
 @model RestaurantFinder.Models.Cuisine 
 <!-- tells this page which Model to pull into the View page -->
-<h4> Add a new cuisine </h4>
+<h4> Add a New Cuisine </h4>
 <!-- automatically uses method=post -->
 @using (Html.BeginForm()) 
 {
@@ -13,5 +13,5 @@
   <input type="submit" value="Add a new cuisine" />
 
 }
-<p>@Html.ActionLink("Show all Cuisines", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Show All Cuisines", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>

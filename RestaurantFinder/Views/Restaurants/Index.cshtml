@@ -5,12 +5,12 @@
 @using RestaurantFinder.Models;
 @model List<RestaurantFinder.Models.Restaurant>;
 
-<h1>Restaurants<h2>
+<h2>Restaurants</h2>
 
 @foreach (Restaurant restaurant in Model)
 {
   <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Name</li> // using string interpolation to create a link, while still accessing the foreach loop variable restaurant; can't use model.Name because we're inside of the foreach loop (C# world)
 }
 
-<p>@Html.ActionLink("Add a new restaurant", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Add a New Restaurant", "Create")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>

@@ -15,7 +15,7 @@
   @Html.EditorFor(model => model.Name)
 
   @Html.LabelFor(model => model.Rating)
-  @Html.EditorFor(model => model.Rating)
+  @Html.EditorFor(model => model.Rating, new { type="number", min="0", max="5" })
 
   @Html.LabelFor(model => model.Cuisine)
   @Html.DropDownList("CuisineId")
@@ -24,4 +24,4 @@
 }
 
 <p>@Html.ActionLink("Back to List", "Index")</p>
-<p>@Html.ActionLink("Back Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
