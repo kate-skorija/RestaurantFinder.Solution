@@ -30,9 +30,15 @@ namespace RestaurantFinder.Controllers
     {
       _db.Cuisines.Add(cuisine);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index"); // Instead of the View method, RedirectToAction allows you to trigger another route. In this case, we are triggering the index route.
     }
-    
+
+    public ActionResult Details(int id)
+    {
+      Cuisine thisCuisine = _db.Cuisines.Include(cuisine => cuisine.Restaurants).FirstOrDefault(cuisine =>cuisine.CuisineId == id); // passes list of restaurants associated with that cuisine ID. Saves result of search of cuisine ID to thisCuisine, returns thisCuisine in View.
+
+      return View(thisCuisine);
+    }
 
   }
 }
