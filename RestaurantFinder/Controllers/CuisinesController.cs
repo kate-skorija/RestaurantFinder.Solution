@@ -54,5 +54,19 @@ namespace RestaurantFinder.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Delete(int id)
+    {
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      return View(thisCuisine);
+    }
+
+    [HttpPost, ActionName("Delete")] // method signatures are the same for both delete methods, so we have to change name to DeleteConfirm; need ActionName because
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      _db.Cuisines.Remove(thisCuisine);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
