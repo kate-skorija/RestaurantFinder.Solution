@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RestaurantFinder.Models.Restaurant;
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Rating)
+  @Html.TextBoxFor(model => model.Rating, new { type="number", min="0", max="5" }) 
+  <!-- type, min, and max are conventional html form input validations that we are able to apply to the html helper method -->
+
+  @Html.LabelFor(model => model.Cuisine)
+  @Html.DropDownList("CuisineId")
+
+  <input type="submit" value="Add new restaurant" />
+}
+
+<p>@Html.ActionLink("Show all restaurants", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
