@@ -17,7 +17,13 @@ This project was created to practice SQL and Entity Framework. It allows users t
 
 3. Navigate to the `RestaurantFinder.Solution` directory in your editor of choice, or use [Visual Studio Code](https://code.visualstudio.com/)
 
-4. Within the project, navigate to the RestaurantFinder directory, and type `dotnet restore`, then `dotnet build`. Once the build is complete, type `dotnet run` into the terminal. Click on the provided local host link in the terminal to view the web application in your browser. 
+4. Within the project, navigate to the RestaurantFinder directory, and type `dotnet restore`, then `dotnet build`. 
+
+5. Return to your terminal for the RestaurantFinder directory, and enter dotnet ef migrations add Initial. If there is an Unable to resolve project error, ensure you are in the correct directory, RestaurantFinder. A Migrations folder should automatically generate in the RestaurantFinder directory.
+
+6. After the initial migration is complete, run the command `dotnet ef database update`. This will create a `restaurant_finder` database. Refresh MySql Workbench and confirm that the new database has been created.
+
+7. Type `dotnet run` into the terminal. Click on the provided local host link in the terminal to view the web application in your browser.
 
 ## Known Bugs
 
@@ -40,4 +46,4 @@ If there are any issues or questions, please reach out to me through [my GitHub 
 
 *This project uses the following license: [MIT](https://opensource.org/licenses/MIT)*
 
-Copyright (c) 2020 **_Kate Skorija, Brittany Lindgren, & Deryck Jackson_** 
+Copyright (c) 2020 **_Kate Skorija, Noel Kirkland, & Mariel Hamson_** 
